@@ -8,10 +8,12 @@ import {
   ChevronRight,
   Cloud,
   Code2,
+  Database,
   FileCode2,
   GraduationCap,
   Heart,
   Layers3,
+  Layout,
   Mail,
   Menu,
   Monitor,
@@ -35,10 +37,12 @@ const navItems = [
 ];
 
 const technicalGroups = [
-  { label: 'Frontend', icon: Monitor, items: ['HTML', 'CSS', 'JavaScript'] },
+  { label: 'Web Development', icon: Monitor, items: ['HTML',' CSS', 'JavaScript', 'WordPress','Elementor'] },
   { label: 'Programming', icon: Terminal, items: ['Python', 'Java'] },
   { label: 'Cloud', icon: Cloud, items: ['AWS Cloud', 'AWS Console'] },
   { label: 'Tools & software', icon: Layers3, items: ['VS Code', 'WordPress', 'MS Office', 'Github & Git'] },
+  { label: 'Database & Backend', icon: Database, items: ['SQL', 'Supabase'] },
+  { label: 'UI & Design', icon: Layout, items: ['Figma', 'Responsive Design', 'UI Layouts'] },
 ];
 
 const services = [
@@ -123,28 +127,26 @@ function App() {
           <div className="hero-grid">
             <div className="hero-copy reveal">
               <div className="eyebrow"><span className="eyebrow-dot" /> Web Developer Intern · Rank You Higher</div>
-              <h1>Building digital experiences with <em>clarity.</em></h1>
+              <h1>Where simplicity meets  <em>technology.</em></h1>
               <p className="hero-lede">I’m Indhuja R.I, a web developer focused on creating responsive, thoughtful interfaces and growing through every project I build.</p>
               <div className="hero-actions">
                 <button className="button button-dark" onClick={() => scrollTo('projects')}>Explore my work <ArrowUpRight size={16} /></button>
                 <button className="text-button" onClick={() => scrollTo('contact')}>Let&apos;s connect <ChevronRight size={16} /></button>
               </div>
-              <div className="hero-meta"><span>Web development</span><span className="meta-rule" /><span>Always learning</span></div>
+              <div className="hero-meta"><span>Developer · Designer · Problem Solver</span><span className="meta-rule" /></div>
             </div>
             <div className="hero-art reveal reveal-delay">
               <div className="art-grid" />
               <img className="hero-photo" src="/images/ChatGPT_Image_Sep_25,_2026,_11_59_18_AM.png" alt="Indhuja R.I" />
               <div className="art-orbit orbit-one" />
               <div className="art-orbit orbit-two" />
-              <div className="hero-monogram"><span>I</span><span>R</span></div>
-              <div className="art-caption"><span>01 / 04</span><span>Digital identity</span></div>
-              <div className="floating-note note-top"><Code2 size={15} /> responsive by default</div>
+              <div className="art-caption "><span>Slowly becoming the person she imagines</span></div>
+              <div className="floating-note note-top"> Good communicator</div>
               <div className="floating-note note-bottom"><Sparkles size={15} /> always learning</div>
             </div>
           </div>
-          <button className="scroll-cue" onClick={() => scrollTo('about')}><span>Scroll to explore</span><ArrowDown size={15} /></button>
+          <button className="scroll-cue" onClick={() => scrollTo('about')}><span></span><ArrowDown size={15} /></button>
         </section>
-
         <section id="about" className="section-pad content-section">
           <SectionIntro index="01" eyebrow="A little context" title={<>Beyond the <em>code.</em></>} />
           <div className="about-layout">
@@ -159,11 +161,13 @@ function App() {
         </section>
 
         <section id="education" className="section-pad soft-section content-section">
-          <SectionIntro index="02" eyebrow="The foundation" title={<>An academic <em>point of view.</em></>} />
+          <SectionIntro index="02" eyebrow="The foundation" title={<>An academic & professional <em>journey.</em></>} />
           <div className="education-layout">
-            <div className="education-note"><GraduationCap size={30} strokeWidth={1.5} /><p>A grounding in information technology, strengthened by hands-on exploration of web development and programming.</p></div>
+            <div className="education-note"><GraduationCap size={30} strokeWidth={1.5} /><p>A grounding in Computer Science and Information Technology, complemented by hands-on internship experience at Rank You Higher.</p></div>
             <div className="timeline">
-              <TimelineItem year="2023 — 2026" title="Bachelor of Degree in Information Technology" detail="Rathinam College of Arts and Science, Eachanari · 7.70 CGPA" />
+              <TimelineItem year="2026 — Present" title="Master of Science in Computer Science (M.Sc. CS)" detail="Postgraduate Degree · Ongoing" badge="Ongoing" />
+              <TimelineItem year="2026 — Present" title="Web Developer Intern" detail="Rank You Higher · web developer" badge="Active Internship" />
+              <TimelineItem year="2023 — 2026" title="Bachelor of Degree in Information Technology" detail="Rathinam College of Arts and Science, Eachanari · 8.50 CGPA" badge="Completed" />
               <TimelineItem year="2022 — 2023" title="Higher Secondary" detail="Nachiyar Vidyalayam Matric Hr. Sec. School, Pollachi · 74% HSC" />
               <TimelineItem year="2020 — 2021" title="Secondary" detail="Shankinetan Matric School, Pollachi · PASS SSLC" />
             </div>
@@ -213,8 +217,20 @@ function FactCard({ label, value, detail, icon: Icon }: { label: string; value: 
   return <div className="fact-card"><Icon size={17} /><span>{label}</span><strong>{value}</strong><small>{detail}</small></div>;
 }
 
-function TimelineItem({ year, title, detail }: { year: string; title: string; detail: string }) {
-  return <div className="timeline-item"><div className="timeline-marker" /><div className="timeline-copy"><span>{year}</span><h3>{title}</h3><p>{detail}</p></div></div>;
+function TimelineItem({ year, title, detail, badge }: { year: string; title: string; detail: string; badge?: string }) {
+  return (
+    <div className="timeline-item">
+      <div className="timeline-marker" />
+      <div className="timeline-copy">
+        <div className="timeline-header">
+          <span>{year}</span>
+          {badge && <span className="timeline-badge">{badge}</span>}
+        </div>
+        <h3>{title}</h3>
+        <p>{detail}</p>
+      </div>
+    </div>
+  );
 }
 
 export default App;
